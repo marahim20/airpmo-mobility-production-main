@@ -196,17 +196,28 @@ class ApiClass {
     } else {
       url1 = "https://api.airpmo.co/api/create_my_job_card_employee";
       // print("Heloo");
-      body = body = jsonEncode({
-        "_id": job.jobCardNumber,
+      body = jsonEncode({
+        "create_employee": true,
+        "date": "2023-03-03",
+        "jc_id": job.jobCardNumber,
         "project_id": job.projectID,
-        "jc_id": "123",
-        "employee_id": job.achievedQTY,
-        "employee_name": job.achievedQTY,
-        "designation": job.achievedQTY,
-        "max_hour": job.achievedQTY,
-        "hour": job.achievedQTY,
-        "organization_id": job.achievedQTY,
-        "date": job.achievedQTY,
+        "employee_id": resource.id,
+        "employee_name": (resource.fname + " " + resource.lname),
+        "designation": resource.desig,
+        "hour": resource.acthours,
+        "max_hour": "12",
+        "organization_id": "1",
+        "remarks": resource.remarks,
+        // "activity_id": job.jobCardNumber,
+        // "project_id": job.projectID,
+        // "jc_id": "123",
+        // "employee_id": resource.id,
+        // "employee_name": resource.fname,
+        // "designation": resource.desig,
+        // "max_hour": job.achievedQTY,
+        // "hour": job.achievedQTY,
+        // "organization_id": job.achievedQTY,
+        // "date": job.achievedQTY,
         // "actual_employees": [
         //   for (ActualResource ar in job.actuals) ar.toJson(),
         //   ActualResource(
@@ -220,13 +231,13 @@ class ApiClass {
         //       resource.remarks,
         //       true)
         // ],
-        "quantity_to_be_achieved": job.achievedQTY,
-        "alanned_vs_allowable_vs_actual": [
-          for (PlannedvsActualResource par in job.plannedvsactuals)
-            par.toJson(),
-          PlannedvsActualResource(4, "5.7", 0, 0, 0, 0, "Developer", 1, 2, 3, 0,
-              "") //TODO: Replace Hardcoded Value
-        ]
+        // "quantity_to_be_achieved": job.achievedQTY,
+        // "alanned_vs_allowable_vs_actual": [
+        //   for (PlannedvsActualResource par in job.plannedvsactuals)
+        //     par.toJson(),
+        //   PlannedvsActualResource(4, "5.7", 0, 0, 0, 0, "Developer", 1, 2, 3, 0,
+        //       "") //TODO: Replace Hardcoded Value
+        // ]
       });
       // print("Heloo2");
     }

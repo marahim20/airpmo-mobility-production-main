@@ -147,7 +147,8 @@ class TabActualResources extends StatelessWidget {
                                   left: Radius.circular(10))),
                           child: Center(
                               child: Text(
-                            "Actual Employees",
+                            // "Actual Employees",
+                            "Actual Equipments",
                             style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w700,

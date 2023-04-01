@@ -87,13 +87,16 @@ class ActualResourcesPhone extends StatelessWidget {
                     style: ButtonStyle(
                         backgroundColor: MaterialStateColor.resolveWith(
                             (states) => CustomColors.secondary)),
-                    onPressed: () {
+                    onPressed: () async {
                       Provider.of<ProviderModel>(context, listen: false)
                           .putResources(jobCard, singleEquipment,
                               resource == Resource.Equipment);
-                      print(singleEquipment.remarks);
-                      print(singleEquipment.acthours);
-                      // Navigator.of(context, rootNavigator: true).pop();
+                      // print(singleEquipment.remarks);
+                      // print(singleEquipment.acthours);
+                      // await Provider.of<ProviderModel>(context, listen: false)
+                      //     .fetchJobCards();
+
+                      Navigator.of(context, rootNavigator: true).pop();
                     },
                   ),
                 ],
@@ -209,7 +212,11 @@ class ActualResourcesPhone extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 8.0),
               child: Align(
                 alignment: Alignment.centerLeft,
-                child: Text("Actual Employees",
+                child: Text(
+                    // "Actual Employees",
+                    resource == Resource.Equipment
+                        ? "Actual Equipments"
+                        : "Actual Employees",
                     style: TextStyle(fontSize: 20, color: Color(0xdd7B9990))),
               ),
             ),

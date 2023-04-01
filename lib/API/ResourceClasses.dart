@@ -139,11 +139,13 @@ class PlannedvsActualResource {
 class SingleEquipment {
   String id = "", make = "", model = "", type = "", remarks = "";
   double acthours = 0;
+
   SingleEquipment.fromJson(Map<String, dynamic> json) {
-    id = json["_id"];
-    make = json["equipment_id"];
-    model = json["equipment_name"];
-    type = json["designation"];
+    id = json["_id"] ?? "";
+    make = json["equipment_id"] ?? "";
+    model = json["equipment_name"] ?? "";
+    acthours = json["hour"] ?? 0;
+    type = json["designation"] ?? "";
   }
 }
 

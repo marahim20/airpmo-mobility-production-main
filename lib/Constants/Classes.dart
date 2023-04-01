@@ -132,6 +132,15 @@ class MyJobCard {
           (index) => ActualResource.fromJson(json['actual_employees'][index]));
     }
 
+    // if (((json['actual_equipments']) ?? []).length == 0 ||
+    //     json['actual_equipments'].first == "") {
+    //   actuals = [];
+    // } else {
+    //   actuals = List.generate((json['actual_equipments'] ?? []).length,
+    //       (index) => SingleEquipment.fromJson(
+    //         json['actual_equipments'][index]));
+    // }
+
     if (((json['lanned_vs_allowable_vs_actual']) ?? []).length == 0 ||
         json['lanned_vs_allowable_vs_actual'].first.length == 0) {
       plannedvsactuals = [];
@@ -202,7 +211,7 @@ class JobCardData {
   }
 
   Future addResources(MyJobCard myJobCard, dynamic resource, bool iseq) async {
-    print("AddResources");
+    print("AddResources in classes called!");
     await ApiClass()
         .addResources(myJobCard, _loginDetails.token, resource, iseq);
   }
